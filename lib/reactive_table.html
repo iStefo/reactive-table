@@ -56,13 +56,13 @@
                   {{#if labelIsTemplate}}{{#with labelData}}{{> ../label}}{{/with}}{{else}}{{getLabel}}{{/if}}&nbsp;&nbsp;
                   {{#if isAscending}}
                     {{#if ../useFontAwesome}}
-                      <i class="fa fa-sort-asc"></i>
+                      <i class="fa fa-chevron-up"></i>
                     {{else}}
                       &#x25B2;
                     {{/if}}
                   {{else}}
                     {{#if ../useFontAwesome}}
-                      <i class="fa fa-sort-desc"></i>
+                      <i class="fa fa-chevron-down"></i>
                     {{else}}
                       &#x25BC;
                     {{/if}}
