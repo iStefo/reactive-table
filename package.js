@@ -1,6 +1,6 @@
 Package.describe({
   summary: "A reactive table designed for Meteor",
-  version: "0.6.15",
+  version: "0.7.2",
   name: "istefo:reactive-table",
   git: "https://github.com/istefo/reactive-table.git"
 });
@@ -17,13 +17,14 @@ Package.on_use(function (api) {
     api.use("fortawesome:fontawesome@4.2.0", 'client', {weak: true});
 
     api.add_files('lib/reactive_table.html', 'client');
+    api.add_files('lib/filter.html', 'client');
     api.add_files('lib/reactive_table_i18n.js', 'client');
     api.add_files('lib/reactive_table.js', 'client');
     api.add_files('lib/reactive_table.css', 'client');
     api.add_files('lib/filter.js', ['client', 'server']);
     api.add_files('lib/server.js', 'server');
 
-    api.export("ReactiveTable", "server");
+    api.export("ReactiveTable", ["client", "server"]);
 });
 
 Package.on_test(function (api) {
@@ -35,13 +36,14 @@ Package.on_test(function (api) {
     api.use("mongo", ["server", "client"]);
 
     api.add_files('lib/reactive_table.html', 'client');
+    api.add_files('lib/filter.html', 'client');
     api.add_files('lib/reactive_table_i18n.js', 'client');
     api.add_files('lib/reactive_table.js', 'client');
     api.add_files('lib/reactive_table.css', 'client');
     api.add_files('lib/filter.js', ['client', 'server']);
     api.add_files('lib/server.js', 'server');
 
-    api.export("ReactiveTable", "server");
+    api.export("ReactiveTable", ["client", "server"]);
 
     api.use(['tinytest', 'test-helpers'], 'client');
     api.add_files('test/helpers.js', ['client', 'server']);
@@ -66,6 +68,7 @@ Package.on_test(function (api) {
     api.add_files('test/test_multiple_tables.js', 'client');
     api.add_files('test/test_template.html', 'client');
     api.add_files('test/test_template.js', 'client');
+    api.add_files('test/test_custom_filters.js', 'client');
 
     api.use("dburles:collection-helpers@1.0.1", "client");
     api.add_files("test/test_compatibility.js", "client");
